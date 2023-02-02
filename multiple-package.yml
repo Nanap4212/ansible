@@ -1,11 +1,11 @@
 ---
--hosts : Webserver
- become : true
- tasks:
-   -name : update cache and make sure vim, curl, unzip are installed
-   apt : 
-      name : "{{item}}"
-      update_cache : yes
+- hosts : all
+  become : "true"
+  tasks:
+    -name : update cache and make sure vim, curl, unzip are installed
+    apt : 
+       name : "{{item}}"
+       update_cache : "yes"
     loop :
       -vim
       -curl
