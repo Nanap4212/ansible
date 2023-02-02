@@ -1,5 +1,5 @@
 ---
--hosts : webservers
+-hosts : Webserver
  become : true
  tasks:
    -name : update cache and make sure vim, curl, unzip are installed
