@@ -1,12 +1,10 @@
----
-- hosts : all
-  become : "true"
-  tasks:
-    -name : update cache and make sure vim, curl, unzip are installed
-    apt : 
-       name : "{{item}}"
-       update_cache : "yes"
-    loop :
-      -vim
-      -curl
-      -unzip
+- name: Install mongodb
+  yum:
+    name:
+    - "mongodb-org-{{ mongodb_version }}"
+    - "mongodb-org-server-{{ mongodb_version }}"
+    - "mongodb-org-mongos-{{ mongodb_version }}"
+    - "mongodb-org-shell-{{ mongodb_version }}"
+    - "mongodb-org-tools-{{ mongodb_version }}"
+    state: present
+  notify: Restart mongodb
